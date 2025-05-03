@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CT to MRI Translation Using CycleGAN | Aaveg Shangari</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      .project-detail {
+        max-width: 800px;
+        margin: auto;
+        padding: 2rem;
+      }
+
+      .project-detail h1 {
+        color: #0077b6;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-detail h3 {
+        margin-top: 2rem;
+        color: #0077b6;
+        font-size: 1.25rem;
+      }
+
+      .project-detail p {
+        color: #444;
+      }
+
+      .project-detail img {
+        width: 100%;
+        border-radius: 6px;
+        margin: 1rem 0;
+      }
+
+      .back-link {
+        margin-top: 2rem;
+        display: inline-block;
+        color: #0077b6;
+        text-decoration: none;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      .project-detail a {
+        color: #0077b6;
+      }
+
+      .project-detail a:hover {
+        color: #0096c7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="project-detail">
+      <h1>CT to MRI Translation Using CycleGAN</h1>
+      <p><strong>Project Type:</strong> Deep Learning · Image Translation</p>
+
+      <h3>Overview</h3>
+      <p>
+        This project applies a CycleGAN-based architecture to translate CT scans
+        into MRI images and vice versa. The model learns domain-specific
+        features from each modality and performs unpaired image-to-image
+        translation using cycle consistency. This enables synthetic generation
+        of one modality from the other without requiring aligned datasets.
+      </p>
+
+      <h3>Why This Matters</h3>
+      <p>
+        Medical imaging modalities like CT and MRI provide complementary views
+        of anatomy, but acquiring both can be expensive, time-consuming, or
+        contraindicated. A tool that can generate one from the other helps in
+        clinical decision support, data augmentation, or low-resource settings
+        where one modality is unavailable.
+      </p>
+
+      <h3>How It Works</h3>
+      <p>
+        The system uses two generator-discriminator pairs trained adversarially.
+        Cycle consistency ensures that an image translated from CT to MRI and
+        back remains faithful to the original. This method allows the model to
+        retain anatomical structure while adapting texture, brightness, and
+        contrast between domains.
+      </p>
+
+      <h3>Technologies Used</h3>
+      <p>Python, PyTorch, CycleGAN, NumPy, OpenCV, Matplotlib</p>
+
+      <img
+        src="../assets/images/cyclegan-demo.png"
+        alt="CycleGAN CT to MRI example"
+      />
+
+      <p>
+        🔗
+        <a
+          href="https://github.com/SrivathsanSivakumar/body-scan-image-translation-using-cycleGANs"
+          target="_blank"
+        >
+          View GitHub Repository</a
+        >
+      </p>
+
+      <a class="back-link" href="../index.html">← Back to Portfolio</a>
+    </div>
+  </body>
+</html>

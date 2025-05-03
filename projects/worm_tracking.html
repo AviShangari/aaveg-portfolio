@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worm Tracking Thesis | Aaveg Shangari</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      .project-detail {
+        max-width: 800px;
+        margin: auto;
+        padding: 2rem;
+      }
+
+      .project-detail h1 {
+        color: #0077b6;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-detail h3 {
+        margin-top: 2rem;
+        color: #0077b6;
+        font-size: 1.25rem;
+      }
+
+      .video-container {
+        margin: 1.5rem 0;
+      }
+
+      .video-container video {
+        width: 100%;
+        border-radius: 6px;
+      }
+
+      .project-detail img {
+        width: 100%;
+        border-radius: 6px;
+        margin: 1rem 0;
+      }
+
+      .back-link {
+        margin-top: 2rem;
+        display: inline-block;
+        color: #0077b6;
+        text-decoration: none;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      .project-detail p {
+        color: #444;
+      }
+
+      .project-detail a {
+        color: #0077b6;
+      }
+
+      .project-detail a:hover {
+        color: #0096c7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="project-detail">
+      <h1>Microscopic Worm Tracking Thesis</h1>
+      <p><strong>Project Type:</strong> Undergraduate Thesis (2024–2025)</p>
+
+      <h3>Background</h3>
+      <p>
+        In behavioral and biomedical research, model organisms like
+        <em>Caenorhabditis elegans</em> are commonly used to study the effects
+        of chemical exposure, mutations, or environmental changes on movement.
+        Analyzing their motion can reveal deeper insights into neuromuscular
+        function and drug effects. However, their highly deformable and
+        translucent nature makes them difficult to track accurately in video
+        footage.
+      </p>
+
+      <h3>Limitations of Past Approaches</h3>
+      <p>
+        Many traditional tracking methods treat worms as rigid shapes or points,
+        using bounding boxes or optical flow. While computationally efficient,
+        these approaches fail to capture the worm’s posture or shape, and often
+        break down when worms touch or overlap. Deep learning–based pose
+        estimation methods provide better detail, but require large annotated
+        datasets and struggle with generalizing to low-contrast or crowded
+        videos.
+      </p>
+
+      <h3>Our Approach</h3>
+      <p>
+        This project introduces a lightweight, training-free tracking system
+        that captures both the identity and the body posture of each worm.
+        Instead of representing worms as blobs or single points, the software
+        models the full structure of the worm's body in each frame. As the worms
+        move, bend, or intersect, the system maintains their individual identity
+        while preserving their posture over time.
+      </p>
+
+      <p>
+        This posture-aware motion tracking allows for more detailed behavioral
+        analysis without the need for neural networks or labeled training data.
+        The design is optimized for consistency, interpretability, and
+        robustness across varied video conditions.
+      </p>
+
+      <h3>Outcomes & Applications</h3>
+      <p>
+        The final tool enables researchers to study worm movement at both macro
+        and micro levels. It can help quantify changes in body posture,
+        locomotion efficiency, and behavioral trends across experimental
+        conditions. The system is also efficient enough to run on standard
+        consumer-grade machines, making it accessible for labs with limited
+        resources.
+      </p>
+
+      <p>
+        <strong>Technologies Used:</strong> Python, OpenCV, NumPy, scikit-image
+      </p>
+
+      <div class="video-container">
+        <video controls>
+          <source src="../assets/videos/worm-demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <p>
+        🔗
+        <a
+          href="https://github.com/AviShangari/ParticleTrackingThesis"
+          target="_blank"
+          >View GitHub Repository</a
+        ><br />
+
+        <a class="back-link" href="../index.html">← Back to Portfolio</a>
+      </p>
+    </div>
+  </body>
+</html>
