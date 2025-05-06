@@ -140,3 +140,19 @@ footer {
   font-size: 0.95rem;
   color: #555;
 }
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-link:hover .project-card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  transition: 0.2s ease;
+}
+
+.project-link h4 {
+  color: #007bff;
+}
