@@ -156,3 +156,11 @@ footer {
 .project-link h4 {
   color: #007bff;
 }
+
+/* Tech Stack Style */
+.project-card .tech-stack {
+  font-size: 0.85rem !important;
+  font-style: italic;
+  color: #666;
+  margin-top: 0.4rem;
+}
