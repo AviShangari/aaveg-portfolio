@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Classifier | Aaveg Shangari</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      .project-detail {
+        max-width: 800px;
+        margin: auto;
+        padding: 2rem;
+      }
+      .project-detail h1 {
+        color: #0077b6;
+        margin-bottom: 0.5rem;
+      }
+      .project-detail h3 {
+        margin-top: 2rem;
+        color: #0077b6;
+        font-size: 1.25rem;
+      }
+      .project-detail p {
+        color: #444;
+      }
+      .project-detail img {
+        width: 100%;
+        border-radius: 6px;
+        margin: 1rem 0;
+      }
+      .back-link {
+        margin-top: 2rem;
+        display: inline-block;
+        color: #0077b6;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+      .project-detail a {
+        color: #0077b6;
+      }
+      .project-detail a:hover {
+        color: #0096c7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="project-detail">
+      <h1>Mental Health Classifier</h1>
+      <p><strong>Project Type:</strong> AI/ML · Binary Classification</p>
+
+      <h3>Overview</h3>
+      <p>
+        This project explores the impact of remote work on mental health by
+        training a neural network to predict depression based on survey
+        responses. The dataset includes demographic and work-related features,
+        all of which are encoded and used to train a PyTorch-based model.
+      </p>
+
+      <h3>Motivation</h3>
+      <p>
+        As remote work continues to grow, there’s a growing concern about its
+        long-term impact on employee well-being. This project aims to understand
+        which factors most significantly correlate with mental health conditions
+        like depression and whether we can reliably predict risk using basic
+        survey data. The goal is to use machine learning not just for
+        prediction, but also to inform better workplace strategies and support
+        systems.
+      </p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li>
+          Exploratory Data Analysis (EDA) to understand the structure and trends
+          in the dataset
+        </li>
+        <li>
+          Encoded categorical variables using <code>pandas.factorize()</code>
+        </li>
+        <li>
+          Split the dataset into train/test using
+          <code>train_test_split()</code> from Scikit-learn
+        </li>
+        <li>
+          Constructed a simple fully connected neural network using PyTorch
+        </li>
+        <li>
+          Trained the model with binary cross-entropy loss and Adam optimizer
+        </li>
+        <li>Evaluated accuracy and logged performance results for insights</li>
+      </ul>
+
+      <h3>Technologies Used</h3>
+      <p>Python, Pandas, PyTorch, Scikit-learn</p>
+
+      <p>
+        🔗
+        <a
+          href="https://github.com/royce-mathew/kaggle-challenge-exploring-mental-health"
+          target="_blank"
+          >View GitHub Repository</a
+        >
+      </p>
+
+      <a class="back-link" href="../index.html">← Back to Portfolio</a>
+    </div>
+  </body>
+</html>
