@@ -49,66 +49,71 @@
     <div class="project-detail">
       <h1>BravoBot – Voice-Activated Personal Assistant</h1>
       <p>
-        <strong>Project Type:</strong> AI Assistant · Voice + Automation + LLM
+        <strong>Project Type:</strong> AI Assistant · Voice + Vector Memory +
+        LLM
       </p>
 
       <h3>Overview</h3>
       <p>
         BravoBot is a modular, voice-activated AI assistant that runs entirely
         from the command line. It transcribes user speech, classifies the intent
-        using a fine-tuned transformer model, and performs appropriate actions
-        using automation or generative AI. The system is designed to run
-        offline-first with local LLMs like LLaMA via Ollama, but gracefully
-        falls back to OpenAI when needed.
+        using a fine-tuned transformer model, and performs actions using
+        automation, memory, or generative AI. It is designed to run
+        offline-first with local LLMs (like LLaMA via Ollama), and can
+        optionally fall back to OpenAI when needed.
       </p>
 
       <h3>Motivation</h3>
       <p>
-        Many desktop voice assistants either rely fully on cloud APIs or lack
-        extensibility for personal use cases. BravoBot was created as a flexible
-        alternative with an offline-first design, allowing users to control
-        apps, manage notes, and ask AI questions without constant internet
-        reliance. Because all voice input, intent classification, and even
-        language model inference can be run locally, BravoBot ensures a high
-        level of user <strong>privacy</strong> — no data ever needs to leave
-        your machine.
+        Most voice assistants either rely heavily on cloud APIs or lack
+        extensibility. BravoBot was created to be a fully offline-capable,
+        modular system for power users. With built-in voice UX, persistent
+        semantic memory, and plugin-style routing, it enables personal
+        productivity, automation, and AI interaction — all locally.
       </p>
 
       <h3>Key Features</h3>
       <ul>
         <li>Custom wake word detection ("Ben") for privacy and control</li>
         <li>Intent classification using a fine-tuned DistilBERT model</li>
-        <li>Offline and online LLM support (Ollama and OpenAI GPT)</li>
+        <li>Offline and online LLM support (Ollama and OpenAI GPT fallback)</li>
         <li>
-          Voice-controlled commands: web search, open apps, tell time, check
-          weather, play YouTube
+          Vector-based semantic memory using FAISS + sentence-transformers
         </li>
         <li>
-          Note-taking, note summarization, and note listing via CSV and LLM
+          Memory recall through similarity search and LLM prompt injection
         </li>
-        <li>Interruptible TTS using keyboard shortcut (Shift + Q)</li>
+        <li>
+          Voice-controlled commands: Google search, YouTube, time, weather
+        </li>
+        <li>Note-taking, summarization, and CSV export via voice</li>
+        <li>Session log summarization using AI</li>
+        <li>Interruptible TTS using Shift + Q hotkey</li>
+        <li>Fully modular plugin routing via context-aware handlers</li>
       </ul>
 
       <h3>Architecture & Workflow</h3>
       <p>
-        Speech is captured using a Whisper model and converted to text. This
-        text is passed through an intent classifier trained with DistilBERT to
-        detect the user’s intent. Based on the prediction, automation handlers
-        or LLM interfaces (local or cloud) respond accordingly. The assistant
-        uses pyttsx3 for TTS and can be interrupted mid-sentence.
+        Speech is transcribed using Whisper and passed to an intent classifier
+        (DistilBERT). Based on the intent, control is routed to the appropriate
+        plugin handler (e.g. vector memory, automation, LLM query). Semantic
+        memory is stored locally using FAISS; top matches are retrieved based on
+        the user's prompt and injected into the LLM context to enhance
+        responses. All components run locally by default, with optional
+        internet-based LLM fallback.
       </p>
 
       <h3>Technologies Used</h3>
       <p>
-        Python, Whisper, DistilBERT, Hugging Face Transformers, PyTorch, Ollama,
-        OpenAI GPT, pyttsx3, Selenium, Tkinter, REST APIs
+        Python, Whisper, DistilBERT, Hugging Face Transformers, FAISS,
+        Sentence-Transformers, PyTorch, Ollama, OpenAI GPT, pyttsx3, Selenium,
+        REST APIs
       </p>
 
       <p>
-        🔗
-        <a href="https://github.com/AviShangari/BravoBot" target="_blank"
-          >View GitHub Repository</a
-        >
+        <a href="https://github.com/AviShangari/BravoBot" target="_blank">
+          View GitHub Repository
+        </a>
       </p>
 
       <a class="back-link" href="../index.html">← Back to Portfolio</a>
