@@ -4,234 +4,300 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aaveg Shangari | Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ===== Header / Landing ===== -->
+    <!-- ===== Navigation ===== -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo"></a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== Hero / Landing ===== -->
     <section class="hero">
       <div class="hero-content">
-        <img
-          src="assets/images/profile-pic2.jpg"
-          alt="Photo of Aaveg Shangari"
-          class="profile-pic-side"
-        />
-        <div class="hero-text">
+        <div class="profile-container">
+            <img
+            src="assets/images/profile-pic2.jpg"
+            alt="Photo of Aaveg Shangari"
+            class="profile-pic-side"
+            />
+            <div class="profile-glow"></div>
+        </div>
+        <div class="hero-text fade-in-up">
+          <span class="greeting">Hello, I'm</span>
           <h1>Aaveg Shangari</h1>
-          <p>
-            Computer Science Graduate | AI + ML Developer | Software Engineer
+          <p class="role">
+            CS Graduate &bull; AI/ML Developer &bull; Software Engineer
           </p>
           <div class="links">
-            <a href="https://github.com/AviShangari" target="_blank">GitHub</a>
+            <a href="https://github.com/AviShangari" target="_blank" class="btn btn-outline"><i class="icon-github"></i> GitHub</a>
             <a
               href="https://www.linkedin.com/in/aaveg-shangari/"
               target="_blank"
+              class="btn btn-outline"
               >LinkedIn</a
             >
-            <a href="mailto:shangariaaveg@gmail.com">Email</a>
+            <a href="mailto:shangariaaveg@gmail.com" class="btn btn-primary">Email Me</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== About Section ===== -->
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a Computer Science graduate with a strong passion for building
-        intelligent, efficient, and impactful software. My work spans computer
-        vision, natural language processing, and full-stack development — often
-        blending machine learning with clean, accessible user interfaces.
-      </p>
-      <p>
-        I’ve led projects in AI-powered note summarization, voice-based
-        assistants, and medical image translation using deep learning. My thesis
-        focused on designing a lightweight worm-tracking system that analyzes
-        posture using skeleton-based vision — an experience that sharpened my
-        research, problem-solving, and data analysis skills.
-      </p>
-      <p>
-        I love working on tools that solve real-world problems, and I’m
-        constantly exploring new technologies to improve both functionality and
-        user experience.
-      </p>
+    <section id="about" class="section-container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content fade-in-up">
+        <p>
+            I'm a Computer Science graduate with a strong passion for building
+            <strong>intelligent, efficient, and impactful software</strong>. My work spans computer
+            vision, natural language processing, and full-stack development — often
+            blending machine learning with clean, accessible user interfaces.
+        </p>
+        <p>
+            I’ve led projects in AI-powered note summarization, voice-based
+            assistants, and medical image translation using deep learning. My thesis
+            focused on designing a lightweight worm-tracking system that analyzes
+            posture using skeleton-based vision — an experience that sharpened my
+            research, problem-solving, and data analysis skills.
+        </p>
+        <p>
+            I love working on tools that solve real-world problems, and I’m
+            constantly exploring new technologies to improve both functionality and
+            user experience.
+        </p>
+      </div>
     </section>
 
     <!-- ===== Experience Section ===== -->
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <div class="experience-item">
-        <h3>Undergraduate Thesis Researcher</h3>
-        <p>Ontario Tech University · 2024 – Present</p>
-        <ul>
-          <li>
-            Designed a lightweight computer vision pipeline to track microscopic
-            worms in video using skeletonization, centroid assignment and shape
-            matching.
-          </li>
-          <li>
-            Tracked not just worm identities but the motion of their body parts
-            by interpolating skeletal points across frames
-          </li>
-          <li>
-            Implemented Hungarian matching to maintain consistent IDs and ensure
-            accurate movement reconstruction frame-to-frame
-          </li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <h3>Teaching Assistant</h3>
-        <p>Ontario Tech University · 2023 – 2024</p>
-        <ul>
-          <li>
-            Assisted with <strong>Introductory Programming</strong> (Python) and
-            <strong>Data Structures</strong> (Java) courses for undergraduate
-            students
-          </li>
-          <li>
-            Guided students through lab exercises and assignments, helping them
-            understand programming logic and syntax
-          </li>
-          <li>
-            Marked lab submissions and exams, providing detailed feedback to
-            support learning and improvement
-          </li>
-          <li>
-            Led weekly drop-in sessions to answer questions and reinforce key
-            programming concepts
-          </li>
-          <li>
-            Worked closely with instructors to ensure fair grading and alignment
-            with course outcomes
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== AI & ML Projects ===== -->
-    <section id="ai-ml">
-      <h2>AI & Machine Learning Projects</h2>
-      <div class="project-grid">
-        <a href="projects/worm_tracking.html" class="project-link">
-          <div class="project-card">
-            <h4>Worm Tracking Thesis</h4>
-            <p>
-              Vision-based system for tracking posture and motion in microscopic
-              worms using skeleton analysis.
-            </p>
-            <p class="tech-stack">Tech: Python, OpenCV, NumPy, scikit-image</p>
+    <section id="experience" class="section-container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        
+        <!-- Item 1 -->
+        <div class="timeline-item fade-in-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2024 – Present</span>
+            <h3>Undergraduate Thesis Researcher</h3>
+            <h4>Ontario Tech University</h4>
+            <ul>
+              <li>
+                Designed a lightweight computer vision pipeline to track microscopic
+                worms in video using skeletonization, centroid assignment and shape
+                matching.
+              </li>
+              <li>
+                Tracked not just worm identities but the motion of their body parts
+                by interpolating skeletal points across frames.
+              </li>
+              <li>
+                Implemented Hungarian matching to maintain consistent IDs and ensure
+                accurate movement reconstruction frame-to-frame.
+              </li>
+            </ul>
           </div>
-        </a>
+        </div>
 
-        <a href="projects/cyclegan_ct_mri.html" class="project-link">
-          <div class="project-card">
-            <h4>CycleGAN CT to MRI</h4>
-            <p>
-              Unpaired image-to-image translation model to generate MRI from CT
-              scans using CycleGAN.
-            </p>
-            <p class="tech-stack">
-              Tech: Python, PyTorch, CycleGAN, NumPy, OpenCV
-            </p>
+        <!-- Item 2 -->
+        <div class="timeline-item fade-in-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2023 – 2024</span>
+            <h3>Teaching Assistant</h3>
+            <h4>Ontario Tech University</h4>
+            <ul>
+              <li>
+                Assisted with <strong>Introductory Programming</strong> (Python) and
+                <strong>Data Structures</strong> (Java) courses for undergraduate
+                students.
+              </li>
+              <li>
+                Guided students through lab exercises and assignments, helping them
+                understand programming logic and syntax.
+              </li>
+              <li>
+                Marked lab submissions and exams, providing detailed feedback to
+                support learning and improvement.
+              </li>
+              <li>
+                Led weekly drop-in sessions to answer questions and reinforce key
+                programming concepts.
+              </li>
+            </ul>
           </div>
-        </a>
+        </div>
 
-        <a href="projects/mental_health_classifier.html" class="project-link">
-          <div class="project-card">
-            <h4>Mental Health Classifier</h4>
-            <p>
-              Neural network trained to predict depression levels in remote
-              workers.
-            </p>
-            <p class="tech-stack">
-              Tech: Python, Pandas, PyTorch, Scikit-learn
-            </p>
-          </div>
-        </a>
-
-        <a href="projects/bravobot.html" class="project-link">
-          <div class="project-card">
-            <h4>BravoBot Voice Assistant</h4>
-            <p>
-              Offline voice assistant that uses Whisper and a transformer to
-              classify intent and run tasks privately.
-            </p>
-            <p class="tech-stack">
-              Tech: Python, Whisper, DistilBERT, Hugging Face Transformers,
-              PyTorch, Ollama, OpenAI, pyttsx3, Selenium
-            </p>
-          </div>
-        </a>
       </div>
     </section>
 
-    <!-- ===== Software Engineering Projects ===== -->
-    <section id="software">
-      <h2>Software Engineering Projects</h2>
-      <div class="project-grid">
-        <a href="projects/notes_ai.html" class="project-link">
-          <div class="project-card">
-            <h4>Notes.AI</h4>
-            <p>
-              AI-powered note-taking app using Cohere and OpenAI APIs for
-              summarization and completion.
-            </p>
-            <p class="tech-stack">
-              Tech: Flutter, Dart, Firebase, Flask, Python, Cohere, OpenAI
-            </p>
-          </div>
-        </a>
+    <!-- ===== Projects Wrapper ===== -->
+    <div id="projects">
+        <!-- ===== AI & ML Projects ===== -->
+        <section id="ai-ml" class="section-container">
+        <h2 class="section-title">AI & Machine Learning</h2>
+        <div class="project-grid">
+            <a href="projects/worm_tracking.html" class="project-link fade-in-up">
+            <div class="project-card">
+                <div class="card-content">
+                    <h4>Worm Tracking Thesis</h4>
+                    <p>
+                    Vision-based system for tracking posture and motion in microscopic
+                    worms using skeleton analysis.
+                    </p>
+                    <div class="tags">
+                        <span>Python</span><span>OpenCV</span><span>NumPy</span>
+                    </div>
+                </div>
+            </div>
+            </a>
 
-        <a href="projects/bug_tracker.html" class="project-link">
-          <div class="project-card">
-            <h4>Bug Tracker</h4>
-            <p>
-              Full-stack issue tracking web app using Flask and React with
-              Material UI.
-            </p>
-            <p class="tech-stack">
-              Tech: Flask, Python, React.js, Material UI, SQLite
-            </p>
-          </div>
-        </a>
+            <a href="projects/cyclegan_ct_mri.html" class="project-link fade-in-up">
+            <div class="project-card">
+                <div class="card-content">
+                    <h4>CycleGAN CT to MRI</h4>
+                    <p>
+                    Unpaired image-to-image translation model to generate MRI from CT
+                    scans using CycleGAN.
+                    </p>
+                    <div class="tags">
+                        <span>PyTorch</span><span>CycleGAN</span><span>CV</span>
+                    </div>
+                </div>
+            </div>
+            </a>
 
-        <a href="projects/easyconnect.html" class="project-link">
-          <div class="project-card">
-            <h4>EasyConnect</h4>
-            <p>
-              Hackathon project enabling mobile-to-PC automation for beginners.
-            </p>
-            <p class="tech-stack">
-              Tech: React Native, Flask, Python, Selenium, REST APIs
-            </p>
-          </div>
-        </a>
-      </div>
-    </section>
+            <a href="projects/mental_health_classifier.html" class="project-link fade-in-up">
+            <div class="project-card">
+                <div class="card-content">
+                    <h4>Mental Health Classifier</h4>
+                    <p>
+                    Neural network trained to predict depression levels in remote
+                    workers.
+                    </p>
+                    <div class="tags">
+                        <span>Pandas</span><span>PyTorch</span><span>Sklearn</span>
+                    </div>
+                </div>
+            </div>
+            </a>
 
-    <!-- ===== Data Science Projects ===== -->
-    <section id="data-science">
-      <h2>Data Science Projects</h2>
-      <div class="project-grid">
-        <a href="projects/life_expectancy.html" class="project-link">
-          <div class="project-card">
-            <h4>Life Expectancy Model</h4>
-            <p>
-              Data science project predicting life expectancy from WHO data
-              using regression analysis.
-            </p>
-            <p class="tech-stack">
-              Tech: Python, Pandas, Scikit-learn, NumPy, Matplotlib, Seaborn
-            </p>
-          </div>
-        </a>
-      </div>
-    </section>
+            <a href="projects/bravobot.html" class="project-link fade-in-up">
+            <div class="project-card">
+                <div class="card-content">
+                    <h4>BravoBot Voice Assistant</h4>
+                    <p>
+                    Offline voice assistant that uses Whisper and a transformer to
+                    classify intent and run tasks privately.
+                    </p>
+                    <div class="tags">
+                        <span>Whisper</span><span>Transformers</span><span>Ollama</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        </section>
+
+        <!-- ===== Software Engineering Projects ===== -->
+        <section id="software" class="section-container">
+        <h2 class="section-title">Software Engineering</h2>
+        <div class="project-grid">
+            <a href="projects/notes_ai.html" class="project-link fade-in-up">
+            <div class="project-card">
+                <div class="card-content">
+                    <h4>Notes.AI</h4>
+                    <p>
+                    AI-powered note-taking app using Cohere and OpenAI APIs for
+                    summarization and completion.
+                    </p>
+                    <div class="tags">
+                        <span>Flutter</span><span>Firebase</span><span>Flask</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+            <a href="projects/bug_tracker.html" class="project-link fade-in-up">
+            <div class="project-card">
+                <div class="card-content">
+                    <h4>Bug Tracker</h4>
+                    <p>
+                    Full-stack issue tracking web app using Flask and React with
+                    Material UI.
+                    </p>
+                    <div class="tags">
+                        <span>Flask</span><span>React</span><span>Material UI</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+            <a href="projects/easyconnect.html" class="project-link fade-in-up">
+            <div class="project-card">
+                <div class="card-content">
+                    <h4>EasyConnect</h4>
+                    <p>
+                    Hackathon project enabling mobile-to-PC automation for beginners.
+                    </p>
+                    <div class="tags">
+                        <span>React Native</span><span>Flask</span><span>Selenium</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        </section>
+
+        <!-- ===== Data Science Projects ===== -->
+        <section id="data-science" class="section-container">
+        <h2 class="section-title">Data Science</h2>
+        <div class="project-grid">
+            <a href="projects/life_expectancy.html" class="project-link fade-in-up">
+            <div class="project-card">
+                <div class="card-content">
+                    <h4>Life Expectancy Model</h4>
+                    <p>
+                    Data science project predicting life expectancy from WHO data
+                    using regression analysis.
+                    </p>
+                    <div class="tags">
+                        <span>Pandas</span><span>Scikit-learn</span><span>Matplotlib</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        </section>
+    </div>
 
     <!-- ===== Footer ===== -->
-    <footer>
+    <footer id="contact">
       <p>&copy; 2025 Aaveg Shangari</p>
+      <div class="social-links">
+        <a href="https://github.com/AviShangari">GitHub</a>
+        <a href="https://www.linkedin.com/in/aaveg-shangari/">LinkedIn</a>
+      </div>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
