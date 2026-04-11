@@ -3,83 +3,376 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Worm Tracking Thesis | Aaveg Shangari</title>
+    <title>Worm Tracker | Aaveg Shangari</title>
     <link rel="stylesheet" href="../style.css" />
+    <style>
+      /* ── Page-specific overrides ── */
+      .project-detail {
+        padding-top: 3rem;
+      }
 
+      /* Hero area: GIF takes center stage */
+      .wt-hero {
+        margin-bottom: 3rem;
+      }
+      .wt-hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 0.3rem;
+        background: linear-gradient(to right, #fff, #a5d8ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .wt-hero .wt-tagline {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        margin-bottom: 0.8rem;
+      }
+      .wt-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 1.8rem;
+      }
+      .wt-meta-tag {
+        font-size: 0.8rem;
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--primary-color);
+        padding: 0.35rem 0.9rem;
+        border-radius: 20px;
+        font-weight: 500;
+      }
+      .wt-hero-gif {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      /* Feature cards */
+      .wt-features {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin-top: 2rem;
+      }
+      .wt-feature {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .wt-feature.reverse {
+        direction: rtl;
+      }
+      .wt-feature.reverse > * {
+        direction: ltr;
+      }
+      .wt-feature-img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+      .wt-feature-text h3 {
+        font-size: 1.3rem;
+        color: var(--text-main);
+        margin-bottom: 0.6rem;
+        margin-top: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .wt-feature-text p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-bottom: 0;
+      }
+
+      /* Full-width feature (for wider screenshots) */
+      .wt-feature-full {
+        margin: 2rem 0;
+      }
+      .wt-feature-full img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        margin-bottom: 1rem;
+      }
+
+      /* Approach section */
+      .wt-approach {
+        margin: 3rem 0;
+        padding: 2rem;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+      }
+      .wt-approach h3 {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        margin-top: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .wt-approach p {
+        color: var(--text-muted);
+        font-size: 1.02rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+      .wt-approach p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Tech stack pills */
+      .wt-stack {
+        margin: 3rem 0 1rem;
+      }
+      .wt-stack h3 {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .wt-stack-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .wt-stack-pill {
+        font-size: 0.85rem;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        color: var(--text-main);
+        padding: 0.5rem 1.1rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: border-color 0.2s;
+      }
+      .wt-stack-pill:hover {
+        border-color: var(--primary-color);
+      }
+
+      /* CTA buttons */
+      .wt-cta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 2.5rem 0;
+      }
+      .wt-cta .btn {
+        font-size: 0.95rem;
+      }
+
+      /* Closeup image (small, centered) */
+      .wt-closeup-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+      .wt-closeup {
+        width: 280px;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+      .wt-closeup-caption {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Responsive */
+      @media screen and (max-width: 768px) {
+        .wt-hero h1 {
+          font-size: 2rem;
+        }
+        .wt-feature {
+          grid-template-columns: 1fr;
+        }
+        .wt-feature.reverse {
+          direction: ltr;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="project-detail">
-      <h1>Microscopic Worm Tracking Thesis</h1>
-      <p><strong>Project Type:</strong> Undergraduate Thesis (2024–2025)</p>
 
-      <h3>Background</h3>
-      <p>
-        In behavioral and biomedical research, model organisms like
-        <em>Caenorhabditis elegans</em> are commonly used to study the effects
-        of chemical exposure, mutations, or environmental changes on movement.
-        Analyzing their motion can reveal deeper insights into neuromuscular
-        function and drug effects. However, their highly deformable and
-        translucent nature makes them difficult to track accurately in video
-        footage.
-      </p>
+      <!-- Hero -->
+      <div class="wt-hero">
+        <h1>Worm Tracker</h1>
+        <p class="wt-tagline">
+          Skeleton-based tracking and motion analysis for <em>C. elegans</em> in video
+        </p>
+        <div class="wt-meta">
+          <span class="wt-meta-tag">Undergraduate Thesis</span>
+          <span class="wt-meta-tag">Computer Vision</span>
+          <span class="wt-meta-tag">2024–2025</span>
+          <span class="wt-meta-tag">Ontario Tech University</span>
+        </div>
 
-      <h3>Limitations of Past Approaches</h3>
-      <p>
-        Many traditional tracking methods treat worms as rigid shapes or points,
-        using bounding boxes or optical flow. While computationally efficient,
-        these approaches fail to capture the worm’s posture or shape, and often
-        break down when worms touch or overlap. Deep learning–based pose
-        estimation methods provide better detail, but require large annotated
-        datasets and struggle with generalizing to low-contrast or crowded
-        videos.
-      </p>
+        <!-- HERO GIF — replace with your actual filename -->
+        <img
+          class="wt-hero-gif"
+          src="../assets/images/WormTrackerDemo.gif"
+          alt="Worm Tracker demo — uploading videos, processing queue, and viewing tracked results"
+        />
+      </div>
 
-      <h3>Our Approach</h3>
-      <p>
-        This project introduces a lightweight, training-free tracking system
-        that captures both the identity and the body posture of each worm.
-        Instead of representing worms as blobs or single points, the software
-        models the full structure of the worm's body in each frame. As the worms
-        move, bend, or intersect, the system maintains their individual identity
-        while preserving their posture over time.
-      </p>
+      <!-- Why it matters -->
+      <div class="wt-approach">
+        <h3>The Problem</h3>
+        <p>
+          <em>C. elegans</em> are one of the most widely used model organisms in
+          biological research. Scientists study how they move to understand
+          neuromuscular function, drug effects, and behavioral responses to
+          environmental changes. But tracking these worms in video is hard — they
+          bend, overlap, change shape rapidly, and are often translucent.
+        </p>
+        <p>
+          Existing tools either treat worms as rigid objects (losing posture
+          information) or require expensive deep learning models with large
+          training datasets. There was a need for something in between:
+          lightweight, training-free, and posture-aware.
+        </p>
+      </div>
 
-      <p>
-        This posture-aware motion tracking allows for more detailed behavioral
-        analysis without the need for neural networks or labeled training data.
-        The design is optimized for consistency, interpretability, and
-        robustness across varied video conditions.
-      </p>
+      <!-- Approach -->
+      <div class="wt-approach">
+        <h3>Our Approach</h3>
+        <p>
+          The Worm Tracker uses skeleton-based tracking to capture both the
+          identity and body posture of each worm across video frames. Instead of
+          bounding boxes or single points, the system models each worm as a
+          series of keypoints along its body — from head to tail — maintaining
+          anatomical consistency over time.
+        </p>
+        <p>
+          The system requires no training data and runs on standard hardware,
+          making it accessible to labs with limited computational resources.
+        </p>
+      </div>
 
-      <h3>Outcomes & Applications</h3>
-      <p>
-        The final tool enables researchers to study worm movement at both macro
-        and micro levels. It can help quantify changes in body posture,
-        locomotion efficiency, and behavioral trends across experimental
-        conditions. The system is also efficient enough to run on standard
-        consumer-grade machines, making it accessible for labs with limited
-        resources.
-      </p>
+      <!-- Feature: Comparison Slider -->
+      <div class="wt-features">
+        <div class="wt-feature">
+          <div class="wt-feature-text">
+            <h3>Side-by-Side Video Comparison</h3>
+            <p>
+              Compare the original and tracked videos simultaneously with a
+              draggable slider. Playback is synchronized so you can see exactly
+              how the tracking overlays map to the raw footage.
+            </p>
+          </div>
+          <!-- Replace with your screenshot -->
+          <img
+            class="wt-feature-img"
+            src="../assets/images/App-with-Split.png"
+            alt="Video comparison slider showing original vs tracked video"
+          />
+        </div>
 
-      <p>
-        <strong>Technologies Used:</strong> Python, OpenCV, NumPy, scikit-image
-      </p>
+        <!-- Feature: Motion Analysis -->
+        <div class="wt-feature reverse">
+          <div class="wt-feature-text">
+            <h3>Motion Analysis Dashboard</h3>
+            <p>
+              A color-coded heatmap shows overall, head, mid-body, and tail
+              motion per worm at a glance. Click any row to view per-frame
+              displacement charts with an interactive rolling average for trend
+              analysis.
+            </p>
+          </div>
+          <!-- Replace with your screenshot -->
+          <img
+            class="wt-feature-img"
+            src="../assets/images/MotionAnalysis.png"
+            alt="Motion analysis heatmap and timeline charts"
+          />
+        </div>
 
+        <!-- Feature: Job Management -->
+        <div class="wt-feature">
+          <div class="wt-feature-text">
+            <h3>Multi-File Upload &amp; Job Queue</h3>
+            <p>
+              Upload multiple videos at once — they queue and process
+              sequentially. A full job history lets you view, download, or
+              delete past results. Re-run any job with different parameters
+              without re-uploading.
+            </p>
+          </div>
+          <!-- Replace with your screenshot -->
+          <img
+            class="wt-feature-img"
+            src="../assets/images/ParameterPanel.png"
+            alt="Parameter panel with job history and queue"
+          />
+        </div>
+      </div>
+
+      <!-- Closeup of tracked worm -->
+      <div class="wt-closeup-container">
+        <div>
+          <img
+            class="wt-closeup"
+            src="../assets/images/Tracked-Worm-Closeup.png"
+            alt="Close-up of a tracked worm with color-coded keypoints from head (red) to tail (blue)"
+          />
+          <p class="wt-closeup-caption">
+            Color-coded keypoints along the worm skeleton — head (red/orange)
+            through mid-body (green) to tail (blue)
+          </p>
+        </div>
+      </div>
+
+      <!-- Demo Video -->
+      <h3>Demo</h3>
       <div class="video-container">
         <video controls>
+          <!-- Replace with your demo video -->
           <source src="../assets/videos/worm-demo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
 
-      <p>
-        🔗
+      <!-- Tech Stack -->
+      <div class="wt-stack">
+        <h3>Built With</h3>
+        <div class="wt-stack-grid">
+          <span class="wt-stack-pill">Python</span>
+          <span class="wt-stack-pill">FastAPI</span>
+          <span class="wt-stack-pill">OpenCV</span>
+          <span class="wt-stack-pill">scikit-image</span>
+          <span class="wt-stack-pill">SciPy</span>
+          <span class="wt-stack-pill">NumPy</span>
+          <span class="wt-stack-pill">React</span>
+          <span class="wt-stack-pill">Vite</span>
+          <span class="wt-stack-pill">Recharts</span>
+          <span class="wt-stack-pill">SQLite</span>
+          <span class="wt-stack-pill">FFmpeg</span>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="wt-cta">
         <a
+          class="btn btn-primary"
           href="https://github.com/AviShangari/ParticleTrackingThesis"
           target="_blank"
-          >View GitHub Repository</a
-        ><br />
+          >View on GitHub</a
+        >
+        <!-- Uncomment when live demo is available -->
+        <!-- <a class="btn btn-outline" href="https://wormtracker.savvant.ca" target="_blank">Try Live Demo</a> -->
+      </div>
 
+      <p>
         <a class="back-link" href="../index.html">← Back to Portfolio</a>
       </p>
     </div>
