@@ -1024,6 +1024,101 @@
         transition: none
       }
     }
+
+    /* ---------- screenshot gallery ---------- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 0 0 26px;
+    }
+
+    @media(max-width:640px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gallery-item {
+      max-width: 100%;
+    }
+
+    .gallery-link {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: none;
+      cursor: pointer;
+      line-height: 0;
+    }
+
+    .gallery-link img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .gallery-item figcaption {
+      margin-top: 10px;
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--text-3);
+    }
+
+    /* ---------- lightbox ---------- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(9, 9, 11, .92);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: min(90vw, 900px);
+      max-height: 78vh;
+      width: auto;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .lightbox-caption {
+      max-width: 700px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: .8rem;
+      color: var(--text-2);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -1106,6 +1201,40 @@
               <li><b>Double-count-proof by design:</b> in-place pending-to-posted promotion and a typed transaction
                 taxonomy keep spend totals correct across chequing and credit accounts.</li>
             </ul>
+            <div class="gallery">
+              <figure class="gallery-item">
+                <button type="button" class="gallery-link" data-caption="Caption placeholder — chatbot view">
+                  <img src="assets/savvant-chatbot.png"
+                    alt="Savvant chatbot answering a user's spending question with a plain-language, non-hallucinated response"
+                    width="480" height="300" loading="lazy">
+                </button>
+                <figcaption>Caption placeholder — chatbot view</figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <button type="button" class="gallery-link" data-caption="Caption placeholder — dashboard view">
+                  <img src="assets/savvant-dashboard.png"
+                    alt="Savvant dashboard showing linked account balances and recent transactions synced from Plaid"
+                    width="480" height="300" loading="lazy">
+                </button>
+                <figcaption>Caption placeholder — dashboard view</figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <button type="button" class="gallery-link" data-caption="Caption placeholder — insights view">
+                  <img src="assets/savvant-insights.png"
+                    alt="Savvant insights view highlighting behavioral spending patterns and anomaly flags"
+                    width="480" height="300" loading="lazy">
+                </button>
+                <figcaption>Caption placeholder — insights view</figcaption>
+              </figure>
+              <figure class="gallery-item">
+                <button type="button" class="gallery-link" data-caption="Caption placeholder — statistics view">
+                  <img src="assets/savvant-statistics"
+                    alt="Savvant statistics view charting spending trends and category breakdowns over time"
+                    width="480" height="300" loading="lazy">
+                </button>
+                <figcaption>Caption placeholder — statistics view</figcaption>
+              </figure>
+            </div>
             <p class="stack-line">FastAPI · PostgreSQL · React · Plaid · LightGBM · IsolationForest · Prophet ·
               GPT-5.4-mini · Railway · Vercel · Cloudflare</p>
           </div>
@@ -1448,7 +1577,7 @@
               <span class="role-chip">Systems</span>
             </div>
             <h3>BravoBot</h3>
-            <p class="sub">A local-first voice assistant that runs entirely offline: speech-to-text, intent
+            <p class="sub">A local-first voice assistant that runs local-first: speech-to-text, intent
               classification, semantic memory, and LLM responses, all on-device.</p>
             <ul class="points">
               <li><b>End-to-end voice pipeline:</b> Whisper STT, fine-tuned DistilBERT intent classifier (13 classes),
@@ -1681,6 +1810,12 @@
     </div>
   </section>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button type="button" class="lightbox-close" aria-label="Close image">&times;</button>
+    <img class="lightbox-img" src="" alt="">
+    <p class="lightbox-caption"></p>
+  </div>
+
   <script>
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const els = document.querySelectorAll('.reveal');
@@ -1704,6 +1839,41 @@
           ? 'Close case study'
           : 'Case study: why, architecture, tradeoffs';
       });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+
+    function openLightbox(src, alt, caption) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightboxCaption.textContent = caption;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.src = '';
+    }
+
+    document.querySelectorAll('.gallery-link').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const img = btn.querySelector('img');
+        openLightbox(img.src, img.alt, btn.dataset.caption || '');
+      });
+    });
+
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
     });
   </script>
 
